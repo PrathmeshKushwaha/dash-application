@@ -5,6 +5,7 @@
 
 
 import dash
+import os
 from dash import dcc
 from dash import html
 from dash.dependencies import Input, Output
@@ -187,5 +188,6 @@ def update_output_container(stats, year):
 
 # Run the Dash app
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    port = int(os.environ.get('PORT', 8050))
+    app.run_server(host='0.0.0.0', port=port)
 
